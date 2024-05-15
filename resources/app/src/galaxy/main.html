@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-mode="dark" data-body-image="img-1">
+  <head>
+    <meta charset="utf-8" />
+
+    <link
+      href="assets/css/bootstrap.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <!-- Icons Css -->
+    <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <!-- App Css-->
+    <link href="assets/css/app.css" rel="stylesheet" type="text/css" />
+    <!-- custom Css-->
+    <link href="assets/css/custom.min.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="page-content h-100">
+      <div class="container-fluid h-100">
+        <div class="row h-100">
+          <div class="col-12">
+            <div class="card p-3 h-100">
+              <!-- <div class="row">
+                <div class="col-6">
+                  <i class="ri-whatsapp-line"></i> WhatsApp Accurate Translation
+                </div>
+                <div class="col-6">
+                  <i class="ri-telegram-line"></i> Telegram Accurate Translation
+                </div>
+              </div> -->
+              <div class="row mb-3 h-100">
+                <div class="col-md-6 h-100">
+                  <textarea
+                    class="form-control h-100"
+                    id="leftTextView"
+                  ></textarea>
+                </div>
+                <div class="col-md-6 h-100">
+                  <textarea
+                    class="form-control h-100"
+                    id="rightTextView"
+                  ></textarea>
+                </div>
+              </div>
+              <div class="row mb-3">
+                <div
+                  class="btn-group col-sm-2"
+                  style="margin: auto; display: flex"
+                >
+                  <button
+                    id="selectedLanguageBtn"
+                    type="button"
+                    class="btn btn-light dropdown-toggle"
+                    data-bs-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                    English
+                  </button>
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item language" href="#">Chinese</a>
+                    <a class="dropdown-item language" href="#">Korean</a>
+                    <a class="dropdown-item language" href="#">Japanes</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item language" href="#">English</a>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-2" style="margin: auto">
+                  <button
+                    type="button"
+                    class="btn btn-light w-100 btn-load"
+                    style="margin: auto"
+                    onclick="onClickTranslate(event)"
+                  >
+                    <span class="d-flex align-items-center">
+                      <span
+                        id="statusForTranslating"
+                        class="spinner-border flex-shrink-0 visually-hidden"
+                        role="status"
+                      >
+                        <span class="visually-hidden">Loading...</span>
+                      </span>
+                      <span class="flex-grow-1 ms-2"> Translate </span>
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-4" style="display: none;">
+            <div class="card h-100 p-3" id="chatPage">
+              <div class="row mb-3">
+                <div class="col-sm-9">
+                  <select
+                    class="form-select"
+                    aria-label="Default select example"
+                  >
+                    <option selected>Select your Status</option>
+                    <option value="1">Declined Payment</option>
+                    <option value="2">Delivery Error</option>
+                    <option value="3">Wrong Amount</option>
+                  </select>
+                </div>
+                <div class="col-sm-3">
+                  <button
+                    type="button"
+                    class="btn btn-light w-100"
+                    onclick="onClickSetting()"
+                  >
+                    Setting
+                  </button>
+                </div>
+              </div>
+              <div class="row h-100 mb-3">
+                <div class="col-sm-12">
+                  <textarea
+                    class="form-control h-100"
+                    id="exampleFormControlTextarea5"
+                    rows="3"
+                  ></textarea>
+                </div>
+              </div>
+              <div class="row">
+                <div>
+                  <div class="form-icon right">
+                    <input
+                      type="email"
+                      class="form-control form-control-icon"
+                      id="iconrightInput"
+                      placeholder="Type your messages"
+                    />
+                    <i class="ri-send-plane-fill"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card h-100 p-3" style="display: none" id="settingPage">
+              <div class="d-flex align-items-center p-3 offcanvas-header">
+                <h5 class="m-0 me-2 text-white">Character Setting</h5>
+
+                <button
+                  type="button"
+                  class="btn-close btn-close-white ms-auto"
+                  id="customizerclose-btn"
+                  data-bs-dismiss="offcanvas"
+                  aria-label="Close"
+                  onclick="onClickClose()"
+                ></button>
+              </div>
+              <div class="h-100">
+                <div data-simplebar class="characterView p-3 mb-3">
+                  <p class="border border-dashed p-2">
+                    Please try to fill in the character information completely,
+                    to help the chat content more suitable to the actual
+                    situation of the character, to get a better response and
+                    experience.
+                  </p>
+                  <div class="mb-3">
+                    <label for="template" class="form-label"
+                      >Character Template</label
+                    >
+                    <select class="form-control" id="template"></select>
+                  </div>
+                  <div class="mb-3">
+                    <label for="clientNotes" class="form-label"
+                      >Client Notes</label
+                    >
+                    <input type="text" class="form-control" id="clientNotes" />
+                  </div>
+                  <div class="mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="name" />
+                  </div>
+                  <div class="mb-3">
+                    <label for="age" class="form-label">Age</label>
+                    <input type="text" class="form-control" id="age" />
+                  </div>
+                  <div class="mb-3">
+                    <label for="gender" class="form-label">Gender</label>
+                    <select class="form-control" id="gender"></select>
+                  </div>
+                  <div class="mb-3">
+                    <label for="occupation" class="form-label"
+                      >Occupation</label
+                    >
+                    <input type="text" class="form-control" id="occupation" />
+                  </div>
+                  <div class="mb-3">
+                    <label for="residence" class="form-label"
+                      >Place of residence</label
+                    >
+                    <input type="text" class="form-control" id="residence" />
+                  </div>
+                  <div class="mb-3">
+                    <label for="personality" class="form-label"
+                      >Personality Traits</label
+                    >
+                    <input type="text" class="form-control" id="personality" />
+                  </div>
+                  <div class="mb-3">
+                    <label for="income" class="form-label">Income</label>
+                    <input type="text" class="form-control" id="income" />
+                  </div>
+                  <div class="mb-3">
+                    <label for="familyStatus" class="form-label"
+                      >Family Status</label
+                    >
+                    <textarea
+                      class="form-control"
+                      id="familyStatus"
+                      rows="3"
+                    ></textarea>
+                  </div>
+                  <div class="mb-3">
+                    <label for="educationDegree" class="form-label"
+                      >Education Degree</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="educationDegree"
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <label for="personal" class="form-label">Personal</label>
+                    <textarea
+                      class="form-control"
+                      id="personal"
+                      rows="3"
+                    ></textarea>
+                  </div>
+                  <div class="mb-3">
+                    <label for="relationships" class="form-label"
+                      >Relationships</label
+                    >
+                    <textarea
+                      class="form-control"
+                      id="relationships"
+                      rows="3"
+                    ></textarea>
+                  </div>
+                  <div class="mb-3">
+                    <label for="interests" class="form-label">Interests</label>
+                    <input type="text" class="form-control" id="interests" />
+                  </div>
+                  <div class="mb-3">
+                    <label for="specialSkills" class="form-label"
+                      >Special skills</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="specialSkills"
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <label for="psyCharacterstics" class="form-label"
+                      >Psychological characteristics</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="psyCharacterstics"
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <label for="values" class="form-label">Values</label>
+                    <input type="text" class="form-control" id="values" />
+                  </div>
+                  <div>
+                    <label for="dream" class="form-label">Dream</label>
+                    <input type="text" class="form-control" id="dream" />
+                  </div>
+                </div>
+                <div class="d-flex">
+                  <button
+                    type="button"
+                    class="btn btn-outline-light ms-auto"
+                    onclick="onClickClose()"
+                  >
+                    Cancel</button
+                  ><button
+                    type="button"
+                    class="btn btn-outline-light"
+                    style="margin-left: 20px; margin-right: 20px;"
+                    onclick="onClickSaveSetting()"
+                  >
+                    Save
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- JAVASCRIPT -->
+    <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/libs/simplebar/simplebar.min.js"></script>
+    <script src="assets/libs/feather-icons/feather.min.js"></script>
+    <script src="assets/libs/choices.js/public/assets/scripts/choices.min.js"></script>
+    <script src="assets/libs/sweetalert2/sweetalert2.all.min.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

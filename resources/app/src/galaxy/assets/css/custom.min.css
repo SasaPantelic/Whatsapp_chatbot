@@ -1,0 +1,31 @@
+
+/*# sourceMappingURL=custom.min.css.map */
+
+body {
+    height: 100vh;
+}
+
+.view {
+    height: calc(100vh - 35px);
+}
+
+.nav-item a {
+    height: 35px;
+}
+
+.page-content {
+    padding: 20px;
+}
+
+.ri-whatsapp-line, .ri-telegram-line {
+    font-size: 24px;
+    margin-right: 10px;
+    color: var(--vz-gray-600);
+    -webkit-transition: all .4s;
+    transition: all .4s;
+    vertical-align: middle;
+}
+
+.characterView {
+    max-height: calc(100vh - 140px - 4rem);
+}

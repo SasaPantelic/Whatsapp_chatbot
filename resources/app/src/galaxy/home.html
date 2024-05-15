@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ChatAI</title>
+    <link
+      href="assets/css/bootstrap.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link href="assets/css/custom.min.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body style="margin: 0">
+    <ul class="nav nav-tabs" role="tablist">
+      <li class="nav-item">
+        <a
+          class="nav-link active"
+          data-bs-toggle="tab"
+          href="#main"
+          role="tab"
+          aria-selected="false"
+        >
+          Main
+        </a>
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          data-bs-toggle="tab"
+          href="#whatsapp"
+          role="tab"
+          aria-selected="false"
+        >
+          WhatsApp
+        </a>
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          data-bs-toggle="tab"
+          href="#telegram"
+          role="tab"
+          aria-selected="false"
+        >
+          Telegram
+        </a>
+      </li>
+    </ul>
+    <div class="tab-content text-muted">
+      <div class="tab-pane active" id="main" role="tabpanel">
+        <webview
+          class="view"
+          src="main.html"
+          useragent="Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.5615.165 Safari/537.36"
+          preload="assets/js/main_preload.js"
+          nodeintegration
+        />
+      </div>
+      <div class="tab-pane" id="whatsapp" role="tabpanel">
+        <webview
+          id="whatsapp_webview"
+          class="view"
+          src="https://web.whatsapp.com/"
+          disablewebsecurity
+          useragent="Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.5615.165 Safari/537.36"
+          preload="assets/js/whatsapp_preload.js"
+          nodeintegration
+        />
+      </div>
+      <div class="tab-pane" id="telegram" role="tabpanel">
+        <webview
+          id="telegram_webview"
+          class="view"
+          src="https://web.tlgrm.app/"
+          useragent="Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.5615.165 Safari/537.36"
+          preload="assets/js/telegram_preload.js"
+          nodeintegration
+        />
+      </div>
+    </div>
+    <script src="assets/js/home.js"></script>
+    <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>    
+  </body>
+</html>

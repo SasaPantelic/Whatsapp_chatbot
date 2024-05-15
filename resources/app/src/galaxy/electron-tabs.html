@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ChatAI</title>
+  </head>
+  <body style="margin: 0">
+    <!-- <tab-group sortable="true">
+      <style>
+        /* Add custom styles */
+        .my-badge {
+          background-color: #327bb1;
+        }
+        .my-custom-tab {
+          color: #d135d1;
+          font-style: italic;
+          font-weight: bold;
+        }
+      </style>
+    </tab-group> -->
+    <webview
+      src="main.html"
+      useragent="Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.5615.165 Safari/537.36"
+      style="height: 100vh"
+    />
+    <webview
+      src="https://web.whatsapp.com/"
+      useragent="Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.5615.165 Safari/537.36"
+      style="height: 100vh"
+    />
+    <webview
+      src="https://web.whatsapp.com/"
+      useragent="Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.5615.165 Safari/537.36"
+      style="height: 100vh"
+    />
+    <!-- <script src="../node_modules/electron-tabs/dist/electron-tabs.js"></script>
+    <script>
+      const tabGroup = document.querySelector("tab-group");
+      tabGroup.on("ready", () => console.info("TabGroup is ready"));
+
+      tabGroup.addTab({
+        title: "Main",
+        src: "main.html",
+        closable : false,
+        active : true,        
+      });
+
+      tabGroup.addTab({
+        title: "WhatsApp",
+        src: "https://web.whatsapp.com/",
+      });
+
+      tabGroup.addTab({
+        title: "Telegram",
+        src: "https://web.tlgrm.app/",
+      });
+    </script> -->
+  </body>
+</html>
